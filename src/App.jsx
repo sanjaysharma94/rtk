@@ -7,7 +7,7 @@ import {useEffect, useState } from "react"
 import { fetchData} from "./Redux/action"
 
 function App() {
-  const [payload, setPayload] = useState("")
+  const [payload, setPayload] = useState(2)
   const [name , setName] = useState("")
 
   const count = useSelector((store) => store.counter.value)
@@ -74,7 +74,9 @@ useEffect(()=>{
 
       </div>
 
-      <input type='number' onChange={handleCounter} placeholder='increment By Amount'></input>
+      <input type='number' 
+      value={payload||""}
+      onChange={handleCounter} placeholder='increment By Amount'></input>
       <button onClick={handleSubmit}> increment By Amount</button>
       <input type='text' id='payloadName' onChange={handleName} placeholder='Enter Name'></input>
       <button onClick={handleSubmitName}> change Name</button>
